@@ -1,0 +1,148 @@
+<section>
+    <div class="col-md-12">
+      <app-navbar></app-navbar>
+    </div>
+  
+  </section>
+  
+  <section class="container-fluid">
+    
+    <div class="row  dashboard_form">
+        <div class="col-md-3 sidebar-container">
+          <app-sidebar></app-sidebar>
+        </div>
+  
+    <div class="col-md-8 offset-md-0 dashboard_form ">
+          <br><br>
+        
+            <br>
+            <h2 class="text-center">Cette interface vous permet de decrire vos donnnes <br> elle vous permet de voir la moyenne de donnes les quartiles et les medianes et les ecarts types</h2>
+            <div *ngIf="isprogressbar">
+              <p class="text-center"></p>
+            
+              <br><br><br>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
+                  </div>
+                </div>
+            </div>
+            <br><br>
+          <section class="row">
+             <div class="col-md-12 center_adhesion">
+  
+          <form class="form-group" >    
+            <div class="input-group">
+              <span >
+                <hr>
+                 <br>
+              </span>
+              <br><br><br>
+            </div>
+  
+              <!-- <input  type="file" name="chemin"  [(ngModel)] ="">
+              <hr> -->
+              <button  class="btn btn-primary" type="submit" (click)="load_data()" *ngIf ="!this.isPageLoading">voir la description des donnnes</button>
+              <button  class="btn btn-success" type="submit" (click)="load_data()" *ngIf ="this.isPageLoading">loading ...</button>
+              <hr>
+            
+          </form>
+
+          <div [ngClass]="{'spinner-border': this.isPageLoading}" role="status">
+            <div class="sr-only"  *ngIf="this.isPageLoading">Connexion en cours, Veuillez patienter </div>
+              
+          </div>
+
+
+              
+            </div>
+          <div class="table-responsive">
+      <table  *ngIf = "this.dataservice.showtable" class="table table-bordered">
+        <thead  >
+        
+          <tr  >
+              <th>  </th>
+            <th *ngFor="let header of this.dataheader ; let i = index">{{ this.dataheader[i] }}</th>
+             
+            
+          </tr>
+          <!-- <tr >
+           
+            <th>{{ this.dataheader[i] }}</th> 
+          </tr>   -->
+            
+          
+        </thead>
+        <tbody *ngFor="let header of this.dataitere ; let j = index">
+          <td><b>{{this.dataitere[j]}}</b></td>
+          <!-- <tr *ngFor="let header of this.dataheader ; let k = index">{{ this.dataheader[k] }}</tr> -->
+          <td *ngFor="let data of this.databody ; let i = index" >
+            
+            {{this.databody[i][j]}}
+            
+            
+           </td>
+  
+            
+            
+         
+        </tbody> 
+      </table>
+    </div>
+  
+          </section>
+          
+  
+  
+  
+            <br><br><br><br><br><br>
+  
+  
+  
+  
+    <section  class="row">
+      <!-- <section class="col-md-4"> -->
+            <div class="col-md-4">
+              <div class="card btn_actions_items">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                  <a href="#" class="btn btn_color "> Calcul de la Moyenne</a>
+                </div>
+              </div>
+            </div>
+      <!-- </section> -->
+      <!-- <section class=""> -->
+            <div class="col-md-4">
+              <div class="card btn_actions_items">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                  <a href="#" class="btn  btn_color">Calcul de la variance</a>
+                </div>
+              </div>
+            </div>
+        <!-- </section>
+        <section class="col-md-4"> -->
+            <div class="col-md-4">
+                <div class="card btn_actions_items ">
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                    <a href="#" class="btn btn_color "> Regression lineaire </a>
+                  </div>
+                </div>
+              </div>
+        <!-- </section> -->
+  
+  
+    </section>
+  
+        </div>
+  
+    </div>
+  
+  
+  
+  </section>
+  
+  

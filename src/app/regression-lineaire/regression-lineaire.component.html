@@ -1,0 +1,104 @@
+<section>
+    <div class="col-md-12">
+      <app-navbar></app-navbar>
+    </div>
+  
+  </section>
+  
+  <section class="container-fluid">
+    
+    <div class="row  dashboard_form">
+        <div class="col-md-3 sidebar-container">
+          <app-sidebar></app-sidebar>
+        </div>
+  
+    <div class="col-md-8 offset-md-0 dashboard_form ">
+          <br><br>
+        
+            <br>
+            <h2 class="text-center">Interface de visualisation des model de regression lineaire suivant une variable</h2>
+  
+            <br><br><br>
+            
+            <section>
+              <div class="row justify-content-md-center">
+              
+                
+                
+                  <button class="btn btn-primary"type="submit" (click)="voir_histo()" ><h4>veuillez choisir la variable  pour faire la regression lineaire</h4> </button>
+                
+                
+              </div>
+              
+  
+              </section>
+              <br><br><br>
+
+              <form *ngIf ="showform" class="form-group centered">
+                  <select class="input-group custom-select" style="width:200px;" name="chemin"  [(ngModel)] ="this.urlist.variable">
+                    <option  name="variable"  
+                 [value]="header" *ngFor="let header of this.dataheader">{{header}}</option>
+                  </select>
+              </form>
+              <br><br>
+              <section>
+                  <div class="row justify-content-md-center">
+                  
+                    
+                    
+                      <button class="btn btn-primary"type="submit" (click)="voir_regression()" *ngIf ="!this.isPageLoading" >voir le model de regression lineaire</button>
+                      <button class="btn btn-success"type="submit" (click)="voir_regression()"  *ngIf ="this.isPageLoading">voir le model de regression lineaire</button>
+                    
+                    
+                  </div>
+                  
+      
+                  </section>
+
+                  <div class="col-md-12 offset-md-5">
+                      <div class="card-body">
+          
+              <div [ngClass]="{'spinner-border': this.isPageLoading}" role="status">
+                <div class="sr-only"  *ngIf="this.isPageLoading">Connexion en cours, Veuillez patienter </div>
+                </div>
+                </div>
+              </div>
+
+
+              <div class="container " *ngIf ="showregression">
+                  <div class="row">
+                      <div class="col-md-8 offset-md-2">
+                        
+                          <h1 class="text-white">Model de regression lineaire</h1>
+                          <img class="img-fluid"  [src]="this.data">
+                      </div>
+                    </div>
+              </div>
+          
+    
+  
+      <!-- <div class="container " *ngIf ="showfigure">
+          <div class="row">
+              <div class="col-md-12 ">
+                
+                  <h1 class="text-white">histogramme des variables</h1>
+                  <img class="img-fluid"  [src]="this.data">
+              </div>
+            </div>
+      </div> -->
+    
+        </div> 
+      
+  
+  
+        
+  
+    </div>
+  
+  
+  
+  </section>
+  
+  
+  
+  

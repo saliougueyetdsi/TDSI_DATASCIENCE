@@ -1,0 +1,72 @@
+<section>
+  <div class="col-md-12">
+    <app-navbar></app-navbar>
+  </div>
+
+</section>
+
+<section class="container-fluid">
+  
+  <div class="row  dashboard_form">
+      <div class="col-md-3 sidebar-container">
+        <app-sidebar></app-sidebar>
+      </div>
+
+  <div class="col-md-8 offset-md-0 dashboard_form ">
+        <br><br>
+      
+          <br>
+          <h2 class="text-center">Interface de visualisation des histogrammes et les nuages de points</h2>
+
+          <br><br><br>
+          
+          <section>
+            <div class="row justify-content-md-center">
+            
+              
+              
+                <button class="btn btn-primary"type="submit" (click)="voir_histo()" *ngIf ="!this.isPageLoading" ><h4>voir l'histogramme des variables et les nuages de points</h4> </button>
+                             
+                <button class="btn btn-success"type="submit" (click)="voir_histo()" *ngIf ="this.isPageLoading"><h4>chargement...</h4> </button>cd 
+              
+              
+            </div>
+            
+
+            </section>
+
+            <div class="col-md-12 offset-md-5">
+              <div class="card-body">
+  
+      <div [ngClass]="{'spinner-border': this.isPageLoading}" role="status">
+        <div class="sr-only"  *ngIf="this.isPageLoading">Connexion en cours, Veuillez patienter </div>
+        </div>
+        </div>
+      </div>
+        
+  
+
+    <div class="container " *ngIf ="showfigure">
+        <div class="row">
+            <div class="col-md-12 ">
+              
+                <h1 class="text-white">histogramme des variables</h1>
+                <img class="img-fluid"  [src]="this.data">
+            </div>
+          </div>
+    </div>
+  
+      </div> 
+    
+
+
+      
+
+  </div>
+
+
+
+</section>
+
+
+

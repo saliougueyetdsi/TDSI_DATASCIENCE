@@ -1,0 +1,160 @@
+<section>
+  <div class="col-md-12">
+    <app-navbar></app-navbar>
+  </div>
+
+</section>
+
+<section class="container-fluid">
+  
+  <div class="row  dashboard_form">
+      <div class="col-md-3 sidebar-container">
+        <app-sidebar></app-sidebar>
+      </div>
+
+  <div class="col-md-8 offset-md-0 dashboard_form ">
+        <br><br>
+      
+          <br>
+          <h2 class="text-center">Annalyse Factorielles des composantes</h2>
+         
+          <br>
+        <section class="row">
+           <div class="col-md-12 center_adhesion">
+
+        <!-- <form class="form-group" >    
+          <div class="input-group">
+            <span >
+              <hr>
+               <br>
+            </span>
+            <br><br><br>
+          </div>
+
+            
+          
+        </form> -->
+            
+          </div>
+        <!-- <div class="table-responsive">
+    <table  *ngIf = "this.dataservice.showtable" class="table table-bordered">
+      <thead  >
+      
+        <tr  >
+            <th>  liaison des variables</th>
+          <th *ngFor="let header of this.dataheader ; let i = index">{{ this.dataheader[i] }}</th>
+           
+          
+        </tr> -->
+        <!-- <tr >
+         
+          <th>{{ this.dataheader[i] }}</th> 
+        </tr>   -->
+          
+        
+      <!-- </thead>
+      <tbody *ngFor="let header of this.dataheader ; let j = index">
+        <td><b>{{this.dataheader[j]}}</b></td> -->
+        <!-- <tr *ngFor="let header of this.dataheader ; let k = index">{{ this.dataheader[k] }}</tr> -->
+        <!-- <td *ngFor="let data of this.databody ; let i = index" >
+          
+          {{this.databody[i][j]}}
+          
+          
+         </td>
+
+          
+          
+       
+      </tbody> 
+    </table>
+  </div> -->
+
+        </section>
+        
+
+
+
+          <br>
+
+
+
+
+  <section  class="row">
+    <!-- <section class="col-md-4"> -->
+          <div class="col-md-8 offset-md-2">
+            
+              <div class="card-body">
+                
+                <button  class="btn_actions_items" type="submit" (click)="load_fact()" *ngIf ="!this.isPageLoading"> <h3>voir le tableau des facteurs</h3> </button>
+                <button  class="btn_actions_items_vert" type="submit" (click)="load_fact()" *ngIf ="this.isPageLoading"> <h3>charement ...</h3> </button>
+              </div>
+            
+          </div>
+    
+          
+    </section>
+
+   
+            
+    
+
+    <hr>
+    
+        <div class="col-md-12 offset-md-5">
+            <div class="card-body">
+
+    <div [ngClass]="{'spinner-border': this.isPageLoading}" role="status">
+      <div class="sr-only"  *ngIf="this.isPageLoading">Connexion en cours, Veuillez patienter </div>
+      </div>
+      </div>
+    </div>
+    
+            
+          
+  
+
+    <!-- <div class="container" *ngIf ="showgraph">
+        <div class="row">
+            <div class="col-md-6 offset-md-1">
+                <h1 class="text-white">graphe de l'acp</h1>
+                <img [src]="this.data">
+            </div>
+          </div>
+    </div> -->
+    <!-- affichage des valeurs propres -->
+    <div class="table-responsive">
+      <table  *ngIf = "this.showtable" class="table table-bordered">
+        <thead  >
+        
+          <tr  >
+            <th *ngFor="let header of this.dataheader ; let i = index">{{ this.dataheader[i] }}</th>
+             
+          </tr>
+        </thead>
+        <tbody *ngFor="let indice of this.datatoItere  ; let j = index">
+          <td *ngFor="let dat of this.data ; let i = index" >
+            
+            {{this.data[i][j]}}
+            
+           </td>
+  
+            
+         
+        </tbody> 
+      </table>
+    </div>
+  
+
+    
+
+
+      </div>
+
+  </div>
+
+
+
+</section>
+
+
